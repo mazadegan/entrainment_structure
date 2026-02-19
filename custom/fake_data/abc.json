@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "audio_path": "/Users/malek/Desktop/tut/abc.wav",
+  "textgrid_path": "/Users/malek/Desktop/tut/abc.TextGrid",
+  "output_dir": ".",
+  "batch_asr": false,
+  "credentials_path": "/Users/malek/Desktop/tut/google-console-key.json",
+  "asr_model": "chirp_3",
+  "segments": [
+    {
+      "tier": "speaker1",
+      "index": 1,
+      "start_ms": 45,
+      "end_ms": 10116,
+      "path": "speaker1/speaker1_1_45_10116.wav",
+      "mark": "1",
+      "transcript": "out are just people that people don't like, you know, like there's they have nothing to go on. And then as the game progresses, they're forever thinking, shit, am I getting stitched up here? Am I",
+      "asr_generated": true,
+      "verified": true
+    },
+    {
+      "tier": "speaker1",
+      "index": 2,
+      "start_ms": 12098,
+      "end_ms": 16361,
+      "path": "speaker1/speaker1_2_12098_16361.wav",
+      "mark": "1",
+      "transcript": "So, so the whole thing encourages you to sort of almost",
+      "asr_generated": true,
+      "verified": true
+    },
+    {
+      "tier": "speaker1",
+      "index": 3,
+      "start_ms": 18887,
+      "end_ms": 59963,
+      "path": "speaker1/speaker1_3_18887_59963.wav",
+      "mark": "1",
+      "transcript": "They constantly do. Yeah, cuz what happens is, um, when it, when it, when it gets down to like six or seven people left, it's fairly obvious who, who the traitors are, or at least one of them is. So like, they'll, they'll be hot to get one out. Uh, and then normally what a traitor will do is in a bid to save themselves is throw another traitor under the bus. And sometimes the, you know, cuz there's usually three traitors, and sometimes there's more they can recruit and stuff throughout the game. But sometimes you'll, you'll, they'll have a play where like two traitors will decide together to throw a third one under the bus as like a sacrifice. And then in the hopes that they look like they're, you know, oh, we're traitor hunters, you know, we",
+      "asr_generated": true,
+      "verified": true
+    },
+    {
+      "tier": "speaker2",
+      "index": 1,
+      "start_ms": 3601,
+      "end_ms": 4079,
+      "path": "speaker2/speaker2_1_3601_4079.wav",
+      "mark": "2",
+      "transcript": "yeah",
+      "asr_generated": true,
+      "verified": true
+    },
+    {
+      "tier": "speaker2",
+      "index": 2,
+      "start_ms": 10068,
+      "end_ms": 14406,
+      "path": "speaker2/speaker2_2_10068_14406.wav",
+      "mark": "2",
+      "transcript": "I would get I would get voted out straight away.",
+      "asr_generated": true,
+      "verified": true
+    },
+    {
+      "tier": "speaker3",
+      "index": 1,
+      "start_ms": 15876,
+      "end_ms": 20514,
+      "path": "speaker3/speaker3_1_15876_20514.wav",
+      "mark": "3",
+      "transcript": "That traitor is called each other out and said you're the traitor, no you're the traitor.",
+      "asr_generated": true,
+      "verified": true
+    }
+  ]
+}
