@@ -14,6 +14,14 @@ CORPUS_IDS = [CORPUS_ID_GC, CORPUS_ID_SB]
 # comment back in and point to corpora 
 # CORPUS_PATH_GC = ''
 # CORPUS_PATH_SB = ''
+try:
+    CORPUS_PATH_GC
+except NameError:
+    CORPUS_PATH_GC = ''
+try:
+    CORPUS_PATH_SB
+except NameError:
+    CORPUS_PATH_SB = ''
 META_PATH_SB = CORPUS_PATH_SB + 'meta/'
 # set as needed
 TMP_PATH = ''
@@ -137,5 +145,4 @@ def check_grp_by(grp_by, supported=GRP_BYS):
     for g in grp_by:
         assert g in GRP_BYS, 'unknown grp_by value found'
         assert g in supported, 'unsupported grp_by value found'
-
 

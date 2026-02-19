@@ -60,7 +60,23 @@ CREATE TABLE IF NOT EXISTS word_alignments (
     FOREIGN KEY (chunk_id) REFERENCES chunks (chunk_id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS chunk_pairs (
+    pair_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT NOT NULL,
+    p_or_x TEXT NOT NULL CHECK (p_or_x IN ('p', 'x')),
+    chunk_id_source TEXT NOT NULL,
+    chunk_id_target TEXT NOT NULL,
+    rid INTEGER NOT NULL,
+    FOREIGN KEY (session_id) REFERENCES sessions (session_id) ON DELETE CASCADE,
+    FOREIGN KEY (chunk_id_source) REFERENCES chunks (chunk_id) ON DELETE CASCADE,
+    FOREIGN KEY (chunk_id_target) REFERENCES chunks (chunk_id) ON DELETE CASCADE
+);
+
 CREATE INDEX IF NOT EXISTS idx_turns_session ON turns (session_id);
 CREATE INDEX IF NOT EXISTS idx_chunks_session ON chunks (session_id);
 CREATE INDEX IF NOT EXISTS idx_chunks_turn ON chunks (turn_id);
 CREATE INDEX IF NOT EXISTS idx_word_align_chunk ON word_alignments (chunk_id);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_chunk_pairs_unique
+ON chunk_pairs (session_id, p_or_x, chunk_id_source, chunk_id_target, rid);
+CREATE INDEX IF NOT EXISTS idx_chunk_pairs_target
+ON chunk_pairs (session_id, chunk_id_target);

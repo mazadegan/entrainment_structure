@@ -1,0 +1,2 @@
+session_id,audio_path,segments_json,align_path
+abc,abc.wav,abc.json,abc.align

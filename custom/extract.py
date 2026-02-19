@@ -2,23 +2,14 @@
 """Extract acoustic-prosodic features for ingested chunks and update SQLite."""
 
 import argparse
-import re
 import shutil
 import sqlite3
 import subprocess
-import sys
 import tempfile
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
-# Reuse syllable counting logic from project module.
-PYTHON_DIR = Path(__file__).resolve().parents[1] / "python"
-if str(PYTHON_DIR) not in sys.path:
-    sys.path.insert(0, str(PYTHON_DIR))
-try:
-    import aux  # type: ignore
-except Exception:
-    aux = None
+from syllables import count_syllables
 
 
 def parse_args() -> argparse.Namespace:
@@ -53,30 +44,6 @@ def ensure_tools() -> None:
     missing = [tool for tool in ("sox", "praat") if shutil.which(tool) is None]
     if missing:
         raise RuntimeError(f"missing required tool(s): {', '.join(missing)}")
-
-
-def count_syllables_safe(text: str) -> float:
-    """Count syllables, preferring project logic with heuristic fallback."""
-    if aux is not None:
-        return aux.count_syllables(text)
-
-    # Fallback: rough estimate by vowel groups, with minimal preprocessing.
-    total = 0
-    for raw in text.split():
-        word = raw.strip().lower()
-        word = re.sub(r"[^a-z?']", "", word)
-        if not word:
-            continue
-        if "?" in word:
-            total += word.count("?")
-            continue
-
-        groups = re.findall(r"[aeiouy]+", word)
-        syllables = len(groups)
-        if word.endswith("e") and syllables > 1:
-            syllables -= 1
-        total += max(1, syllables)
-    return float(total)
 
 
 def read_praat_output(path: Path) -> Dict[str, float]:
@@ -182,7 +149,7 @@ def extract_one(
 
         features = read_praat_output(out_txt)
         duration = end_s - start_s
-        features["rate_syl"] = count_syllables_safe(text) / duration if duration > 0 else None
+        features["rate_syl"] = count_syllables(text) / duration if duration > 0 else None
         return features
     finally:
         if cut_wav.exists():

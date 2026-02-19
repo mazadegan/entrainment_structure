@@ -1,0 +1,7 @@
+ses_type,ses_id,tsk_id,spk_id,intensity_mean,pitch_mean,rate_syl
+CONV,1,0,0,"(np.float64(-0.6707182058047343), np.float64(0.016968655552843544), 10)","(np.float64(0.17840823438636907), np.float64(0.57905580577406), 10)","(np.float64(-0.8814071977928012), np.float64(0.00015090756640806586), 10)"
+CONV,1,0,1,"(nan, nan, 2)","(nan, nan, 2)","(nan, nan, 2)"
+CONV,1,0,2,"(np.float64(nan), np.float64(nan), 6)","(np.float64(nan), np.float64(nan), 6)","(np.float64(nan), np.float64(nan), 6)"
+CONV,1,1,0,"(np.float64(-0.6707182058047343), np.float64(0.016968655552843544), 10)","(np.float64(0.17840823438636907), np.float64(0.57905580577406), 10)","(np.float64(-0.8814071977928012), np.float64(0.00015090756640806586), 10)"
+CONV,1,1,1,"(nan, nan, 2)","(nan, nan, 2)","(nan, nan, 2)"
+CONV,1,1,2,"(np.float64(nan), np.float64(nan), 6)","(np.float64(nan), np.float64(nan), 6)","(np.float64(nan), np.float64(nan), 6)"
