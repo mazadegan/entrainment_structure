@@ -51,3 +51,23 @@ Where `segment_id` must match `tier:index` from the JSON segment.
 Current behavior:
 - Each JSON segment is ingested as one turn and one chunk.
 - Feature columns in `chunks` are present and initialized as `NULL` for Phase A extraction to fill later.
+
+## Phase A Extraction
+
+Populate chunk feature columns from source audio:
+
+```bash
+python custom/extract.py \
+  --db custom/fake_data/custom.db \
+  --session-id abc
+```
+
+Optional flags:
+- `--overwrite`: recompute features for chunks already populated
+- `--min-duration 0.04`: minimum chunk length in seconds
+- `--tmp-dir /tmp`: temporary working directory
+- `--praat-script praat/extract_features.praat`: custom praat script path
+
+Requirements:
+- `sox` available on `PATH`
+- `praat` available on `PATH`
